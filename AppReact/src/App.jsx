@@ -17,7 +17,7 @@ function App() {
         <a href="https://react.dev" target="_blank">
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
-        <a href="https://vitejs.dev" target="_blank">
+        <a href="https://www.cibertec.edu.pe/" target="_blank">
           <img src={cibertecLogo} className="logo" alt="Cibertec logo" />
         </a>
       </div>
