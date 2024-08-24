@@ -18,6 +18,8 @@ function Formulario() {
         if ((regexTexto.test(nombre) === false && nombre != '') || (regexTexto.test(apellidos) === false && apellidos != '') || (regexNumero.test(celular) === false && celular != '') || (regexTexto.test(lugar) === false && lugar != '')) {
             alert('No se ha ingresado datos validos');
             console.log('click');
+            
+        }else{
             alert(`Datos ingresados: { ${nombre}, ${apellidos}, ${celular}, ${lugar} }`);
         }
     }
