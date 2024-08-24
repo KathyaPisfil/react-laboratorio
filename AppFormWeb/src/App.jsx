@@ -1,8 +1,11 @@
-import { Fragment } from "react";
+import { Fragmen } from "react";
 import Formulario from "../componentes/Formulario";
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 function App(){
+
+  
+
   return (
     <>
       <div className="container container-fluid">
