@@ -1,23 +1,24 @@
-import { Fragment,useState } from "react";
+import { Fragment, useState } from "react";
 import { Button, Form } from 'react-bootstrap';
 
 function Formulario() {
-
     const [nombre, setNombre] = useState('');
     const [apellidos, setApellidos] = useState('');
     const [celular, setCelular] = useState('');
     const [lugar, setLugar] = useState('');
 
-    const regxTexto = /^[a-zA-ZÁÉÍÓÚñ\s]+$/;
-    const regxNumero = /^[0-9]{1,9}$/;
+    const regexTexto = /^[a-zA-ZÁÉÍÓÚñ\s]+$/;
+    const regexNumero = /^[0-9]{1,9}$/;
 
     const realizarEnvio = (e) => {
         e.preventDefault();
         if (nombre === '' || apellidos === '' || celular === '' || lugar === '') {
             alert('Las cajas están vacías...');
         }
-        if ((regxTexto.test(nombre) === false && nombre != '') || (regxTexto.test(apellidos) === false && apellidos != '') || (regxNumero.test(celular) === false && celular != '') || (regxTexto.test(lugar) === false && lugar != '')) {
-            alert('No se ha ingresado datos válidos');
+        if ((regexTexto.test(nombre) === false && nombre != '') || (regexTexto.test(apellidos) === false && apellidos != '') || (regexNumero.test(celular) === false && celular != '') || (regexTexto.test(lugar) === false && lugar != '')) {
+            alert('No se ha ingresado datos validos');
+            console.log('click');
+            alert(`Datos ingresados: { ${nombre}, ${apellidos}, ${celular}, ${lugar} }`);
         }
     }
 
@@ -29,12 +30,15 @@ function Formulario() {
     return (
         <>
             <Form onSubmit={realizarEnvio} >
-                <Form.Control type="text" value={nombre} onChange={cambioNombre} placeholder="Ingresa tu nombre"></Form.Control>
-                <Form.Control type="text" value={apellidos} onChange={cambioApellidos} placeholder="Ingresa tus apellidos"></Form.Control>
-                <Form.Control type="text" value={celular} onChange={cambioCelular} placeholder="Ingresa tu celular"></Form.Control>
-                <Form.Control type="text" value={lugar} onChange={cambioLugar} placeholder="Ingresa tu lugar de origen"></Form.Control>
+                <Form.Group>
+                    <Form.Control type="text" value={nombre} onChange={cambioNombre} placeholder="Ingresa tu nombre"></Form.Control>
+                    <Form.Control type="text" value={apellidos} onChange={cambioApellidos} placeholder="Ingresa tus apellidos"></Form.Control>
+                    <Form.Control type="text" value={celular} onChange={cambioCelular} placeholder="Ingresa tu celular"></Form.Control>
+                    <Form.Control type="text" value={lugar} onChange={cambioLugar} placeholder="Ingresa tu lugar de origen"></Form.Control>
+                </Form.Group>
+                <Button type="submit" >Enviar datos </Button>
             </Form>
-            <Button type="submit" >Enviar datos </Button>
+            
         </>
     );
 }
